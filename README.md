@@ -16,7 +16,7 @@ Este projeto consiste em uma página web que exibe dinamicamente os produtos do 
 
 1. Clone este repositório:
 
- git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/Samuel-Gaudencio/estoque.git
 
 2. Abra o arquivo `index.html` em seu navegador web.
 
@@ -28,6 +28,7 @@ Este projeto consiste em uma página web que exibe dinamicamente os produtos do 
 - CSS
 - JavaScript
 - API RESTful desenvolvida por [Samuel Gaudencio](https://github.com/Samuel-Gaudencio) em PHP
+
 
 
 
