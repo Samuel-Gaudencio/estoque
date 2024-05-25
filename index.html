@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Estoque - SM SHOP</title>
+</head>
+<body>
+    <header>
+        <h1>Estoque da SM SHOP</h1>
+    </header>
+
+    <div id="listaProdutos" class="cards-container">
+        <!-- Aqui os produtos serão inseridos dinamicamente -->
+    </div>
+
+    <script>
+        function carregarProdutos() {
+            fetch('http://localhost/produto-api/produto.php') 
+                .then(response => response.json())
+                .then(produtos => {
+                    const listaProdutos = document.getElementById('listaProdutos');
+                    listaProdutos.innerHTML = ''; // Limpa a lista antes de preenchê-la novamente
+                    produtos.forEach(produto => {
+                        // Cria um card para cada produto
+                        const card = document.createElement('div');
+                        card.classList.add('card');
+
+                        card.innerHTML = `
+                            <img src="${produto.foto}" alt="Foto do produto">
+                            <h2>${produto.nome}</h2>
+                            <p><strong>Preço:</strong> R$ ${produto.preco}</p>
+                            <p><strong>Quantidade:</strong> ${produto.quantidade}</p>
+                        `;
+
+                        listaProdutos.appendChild(card);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar produtos:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarProdutos);
+    </script>
+</body>
+</html>
